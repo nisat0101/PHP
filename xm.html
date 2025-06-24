@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Form Data Display</title>
+</head>
+
+<body style="background-color: rgb(189, 23, 125) ;color: rgb(240, 248, 255);">
+    <fieldset>
+
+        <legend>
+            <h2> FORM</h2>
+        </legend>
+        <form id="form1" >
+            <label>Name: <input type="text" name="name" required></label>
+            <br><br>
+
+            <label>Age: <input type="text" name="age" required></label>
+            <br><br>
+
+            <label>Email: <input type="email" name="email" required></label>
+            <br><br>
+
+            Gender:<br>
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label><br><br>
+
+            Hobbies:<br>
+            <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+            <label><input type="checkbox" name="hobbies" value="Gaming"> Gaming</label>
+            <label><input type="checkbox" name="hobbies" value="Nothing"> Nothing</label><br><br>
+
+            Country:
+            <select name="country" required>
+                <option value="">--Select--</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="India">Iraan</option>
+                <option value="USA">USA</option>
+            </select><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
+   
+
+    <script>
+        class FormValues {
+            constructor(formData) {
+                for (let [name, value] of formData) {
+                    this[name] = formData.getAll(name).join(', ');
+                }
+            }
+
+            getData() {
+                let result = "";
+                result += "Name: " + this.name + "<br>";
+                result += "Age: " + this.age + "<br>";
+                result += "Email: " + this.email + "<br>";
+                result += "Gender: " + this.gender + "<br>";
+                result += "Hobbies: " + this.hobbies + "<br>";
+                result += "Country: " + this.country + "<br>";
+
+                let win = window.open('', '', 'width=800,height=800');
+                win.document.write("<h2>Form Data</h2>" + result);
+            }
+        }
+
+        document.getElementById('form1').onsubmit = function (e) {
+            e.preventDefault();
+
+            let formElement = document.querySelector('#form1');
+            let formData = new FormData(formElement);
+            let formValues = new FormValues(formData);
+            formValues.getData();
+        };
+    </script>
+
+</body>
+
+</html>
