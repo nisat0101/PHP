@@ -70,7 +70,7 @@
     echo trim($text);   // "hello";
 
 
-
+             // String Replace & Search Functions:
     ?>
     <?php
     echo " <h3> String Replace & Search Functions:</h3>";
