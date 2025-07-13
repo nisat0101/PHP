@@ -32,7 +32,7 @@ class Form
     {
 
         $students = file(self::$file_path);
-        //The file() reads a file into an array.
+        // array.
 
         echo "<b>ID | Name | Contact | Email</b><br/>";
         foreach ($students as $student) {

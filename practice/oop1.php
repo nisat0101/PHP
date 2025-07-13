@@ -32,9 +32,11 @@ class Nan{
     public $addres;
     public $thakbiNakiJabi= "tui ja ";
 
-     function info($faluda){
-        $this->name="karim";
-        return$this->name=$faluda;
+     function info($name,$age,$address){
+        $this->name=$name;
+        $this->age=$name;
+        $this->thakbiNakiJabi=$address;
+        return "Name:".$this->name."age:".$this->age. "adress" .$this->thakbiNakiJabi
      }
 }
 $nisat =new Nan();
